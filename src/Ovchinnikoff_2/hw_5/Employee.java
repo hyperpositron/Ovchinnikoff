@@ -11,6 +11,14 @@ public class Employee {
         this.salary = salary;
         this.age = age;
         this.position = position;
+
+
+    }
+    public String getName(){
+        return name;
+    }
+    public Integer getAge(){
+        return age;
     }
 
     void methodq() {
@@ -24,6 +32,13 @@ public class Employee {
         System.out.println("Имя : " + name);
         System.out.println("Должность : " + position);
     }
+    void getFullInfo() {
+        System.out.println("Имя : " + name);
+        System.out.println("Зарплата : " + salary);
+        System.out.println("Год рождения: " + age);
+        System.out.println("Должность: " + position);
+    }
+
 
 
 }
