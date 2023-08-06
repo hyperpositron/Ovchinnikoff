@@ -24,4 +24,6 @@ public class Employee {
         System.out.println("Имя : " + name);
         System.out.println("Должность : " + position);
     }
+
+
 }
