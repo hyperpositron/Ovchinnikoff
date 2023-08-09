@@ -4,12 +4,12 @@ public class Main {
     /* 6) *Создать метод, повышающий зарплату всем сотрудникам старше 45 летна 5000.
      * Метод должен принимать в качестве параметра массив сотрудников.
      * Вывести в main() возраст и зарплату сотрудников до и после вызова метода;*/
-    private static void increaser(Employee[] emp, byte age, float increment) {
-        for (int i = 0; emp.length; i++) {
-            if (emp[i].getAge() > age) {
-//                emp[i].setSalary(emp[i].getSalary() + 5000);
-                emp[i].setSalary(increment);
-                emp[i].isSalaryChanget = true;
+    private static void increaser(Employee[] employees, byte age, float increment) {
+        for (int i = 0; employees.length; i++) {
+            if (employees[i].getAge() > age) {
+                employees[i].setSalary(employees[i].getSalary() + 5000);
+                employees[i].setSalary(increment);
+                employees[i].isSalaryChanged = true;
             }
         }
     }
@@ -20,6 +20,10 @@ public class Main {
     private static float averageSalary(Employee[] emp) {
         float result = 0;
         for (int i = 0; i < emp.length; i++)
+            result +=emp[i].getSalary();
+
+        return result /emp.length;
+
     }
 
     private static float averageAge(Employee[] emp) {
@@ -30,17 +34,19 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Employee employee = new Employee("Никита", 20000, 30, "Пожарный");
-        employee.methodq();
-        employee.printNameAndPosition();
-        /*5) Создать массив из 5 сотрудников, С помощью цикла вывести информацию только о сотрудниках старше 40 лет*/
+        /* 1) Создать класс "Сотрудник" с полями: ФИО, должность, телефон,зарплата, возраст; */
+        /* 4) Вывести при помощи методов из пункта 3 ФИО и должность; */
+        System.out.println("Пожалуйста добро пожаловать ваш "+employee.getPosition()+" ,"+employee.getName()+
+                " "+employee.getSecondName()+" "+ employee.getSurname()+".");
+        //employee.methodq();
+        //employee.printNameAndPosition();
+        /* 5) Создать массив из 5 сотрудников, С помощью цикла вывести информацию только о сотрудниках старше 40 лет*/
         Employee[] employees = {
-                new Employee("Евгений", 30000, 29, "Маляр"),
-                new Employee("Петя", 70000, 42, "Дальнобойщик"),
-                new Employee("Артур", 50000, 35, "Агент"),
-                new Employee("Мария", 42000, 47, "Администратор"),
-                new Employee("Виктория", 0, 58, "Бухгалтер")
-        };
+                new Employee("Никита", "Сысоев", "Александрович",
+                        "89527999921", "Пожарный", 30000, 1992),
+        new Employee("Евгений", "Кудикин", "Константинович",
+                "89114525487", "Пожарный", 20000, 1994)
+                };
         for (int i = 0; i < employees.length; i++)
             if (employees[i].getAge() > 40)
                 System.out.println(employees[i].getFullInfo());
@@ -56,5 +62,4 @@ public class Main {
                 System.out.println(employees[i].getFullInfo());
     }
 
-}
 }

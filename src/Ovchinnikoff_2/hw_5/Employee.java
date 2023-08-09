@@ -1,52 +1,36 @@
 package Ovchinnikoff_2.hw_5;
 
 public class Employee {
-    private static final int CURRENT_YEAR = 2023;
-    private String surname;
-    private String secondName;
-    private String name;
-    private String position;
+    public static final int CURRENT_YEAR = 2023;
+    public String surname;
+    public String secondName;
+    public String name;
+    public String position;
 
-    private String phone;
-    private float salary;
+    public String phone;
+    public float salary;
     boolean isSalaryChanged;
-    private int birthYear;
-    private static int id = 0;
+    public int birthYear;
+    public static int id = 0;
 
-    public int uid;
+    public int uid; /* заводим поле которое будет хванить значение прям в объекте(т.е. не static)*/
+
     /* 2) Конструктор Класса должен заполнять эти поля при создании объекта*/
 
-    public Employee(String name, int salary, int age, String position) {
+    public Employee(String name, String secondName, String surname, String phone,
+                    String position, float salary, int birthYear) {
         this.name = name;
-        this.salary = salary;
-        this.age = age;
+        this.secondName = secondName;
+        this.surname = surname;
+        this.phone = phone;
         this.position = position;
-
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    void methodq() {
-        System.out.println("Имя : " + name);
-        System.out.println("Зарплата : " + salary);
-        System.out.println("Год рождения: " + age);
-        System.out.println("Должность: " + position);
-    }
-
-    void printNameAndPosition() {
-        System.out.println("Имя : " + name);
-        System.out.println("Должность : " + position);
-    }
+        this.salary = salary;
+        this.birthYear = birthYear;
+        this.uid = ++id; /*уникальный идентификационный номер uid сделать то что есть сейчас в static и
+        к этому что то прибавить ++id  8 задание*/
 
     /* 3) Внутри класса "Сотрудник" написать методы, которые возвращают значение каждого поля*/
-    int getAge() {
+    public int getAge() {
         return CURRENT_YEAR - birthYear;
     }
 
@@ -78,12 +62,8 @@ public class Employee {
         return position;
     }
 
-    void getFullInfo() {
-        System.out.println("Имя : " + name);
-        System.out.println("Зарплата : " + salary);
-        System.out.println("Год рождения: " + age);
-        System.out.println("Должность: " + position);
-    }
 
 
+
+}
 }
